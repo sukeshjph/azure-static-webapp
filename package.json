@@ -15,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy-azure": "swa deploy ./build --app-name azure-static-webapp-suku"
   },
   "eslintConfig": {
     "extends": "react-app"
