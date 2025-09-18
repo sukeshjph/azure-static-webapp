@@ -1,5 +1,61 @@
 {
     "navigationFallback": {
-        "rewrite": "/index.html"
-    }
+        "rewrite": "/index.html",
+        "exclude": [
+            "/api/*",
+            "/.auth/*"
+        ]
+    },
+    "routes": [
+        {
+            "route": "/dashboard",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/login",
+            "rewrite": "/.auth/login/github"
+        },
+        {
+            "route": "/logout",
+            "rewrite": "/.auth/logout"
+        },
+        {
+            "route": "/static/*",
+            "headers": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            }
+        },
+        {
+            "route": "/*.css",
+            "headers": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            }
+        },
+        {
+            "route": "/*.js",
+            "headers": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            }
+        },
+        {
+            "route": "/favicon.ico",
+            "headers": {
+                "Cache-Control": "public, max-age=604800"
+            }
+        },
+        {
+            "route": "/logo192.png",
+            "headers": {
+                "Cache-Control": "public, max-age=604800"
+            }
+        },
+        {
+            "route": "/logo512.png",
+            "headers": {
+                "Cache-Control": "public, max-age=604800"
+            }
+        }
+    ]
 }
